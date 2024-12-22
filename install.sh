@@ -1,11 +1,10 @@
 #!/usr/bin/env sh
 
-cd ~
-
 if [ -d "$HOME/.dotfiles" ]; then
-    cd .dotfiles
+    cd "$HOME/.dotfiles"
     git pull
 else
+    mkdir -p "$HOME/.dotfiles"
     echo "Select type of connection:"
     select connection in ssh http; do
         case $connection in
@@ -19,7 +18,7 @@ else
             ;;
         esac
     done
-    cd .dotfiles
+    cd "$HOME/.dotfiles"
 fi
 
 sh scripts/install.sh
