@@ -29,5 +29,8 @@ ssh-setup-autocode() {
     ssh-add ~/.ssh/autocode
 }
 
+# sh ~/.config/waifu.sh
+# wezterm imgcat ./Documents/tyan.png
 eval "$(starship init zsh)"
+
 

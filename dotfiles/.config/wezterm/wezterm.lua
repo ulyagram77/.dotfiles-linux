@@ -10,7 +10,7 @@ config.window_padding = {
     bottom = 10,
 }
 config.enable_tab_bar = false
-
+config.enable_wayland = false
 config.font = wezterm.font 'FiraCode Nerd Font Mono'
 config.font_size = 13.0
 config.bold_brightens_ansi_colors = false

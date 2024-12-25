@@ -1,0 +1,38 @@
+{
+  //general
+  "position": "top",
+  "layer": "top",
+  "output": "eDP-1",
+  "height": 30,
+  "spacing": 10,
+  "margin-top": 5,
+  "modules-left": [
+    "hyprland/workspaces"
+    // "hyprland/submap",
+    // "hyprland/scratchpad",
+    // "custom/media"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    // "power-profiles-daemon",
+    // "temperature",
+    "backlight",
+    "hyprland/language",
+    "battery",
+    "clock",
+    "tray",
+    "custom/power"
+  ],
+  // modules configuration
+  "include": [
+    "~/.config/waybar/modules/audio.jsonc",
+    "~/.config/waybar/modules/hardware.jsonc",
+    "~/.config/waybar/modules/langs.jsonc",
+    "~/.config/waybar/modules/system.jsonc",
+    "~/.config/waybar/modules/workspaces.jsonc"
+  ]
+}
