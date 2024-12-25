@@ -22,3 +22,7 @@
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
 }
+
+#window{
+  font-weight: 500;
+}
