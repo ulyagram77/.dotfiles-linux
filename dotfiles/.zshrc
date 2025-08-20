@@ -1,4 +1,4 @@
-#OH_MY_ZSH CONFIG
+#OH_MY_ZSH CONFIG + VISUAL STUFF
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
@@ -22,20 +22,22 @@ setopt HIST_REDUCE_BLANKS
 plugins=(git zsh-autosuggestions fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-# USER CONFIG
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
+
+# USER CONFIG
+eval "$(zoxide init zsh)"
+
 #aliases
-alias nr='npm run'
-alias ni='npm install'
+alias hz='history | fzf'
 alias lg='lazygit'
 alias zj='zellij'
-alias my-ssh='ssh-add ~/.ssh/personal'
-alias work-ssh='ssh-add ~/.ssh/work'
+alias c='code .'
+alias nr='npm run'
+alias ni='npm install'
+alias myssh='ssh-add ~/.ssh/personal'
+alias workssh='ssh-add ~/.ssh/work'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
