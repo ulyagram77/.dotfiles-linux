@@ -24,7 +24,7 @@ config.enable_tab_bar = false
 config.enable_wayland = false
 config.font = wezterm.font 'FiraCode Nerd Font Mono'
 -- config.font = wezterm.font 'CaskaydiaCove Nerd Font Mono'
-config.font_size = 10.0
+config.font_size = 11.5
 config.bold_brightens_ansi_colors = false
 
 config.default_prog = { 'zsh' }

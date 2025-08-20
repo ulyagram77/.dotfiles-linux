@@ -2,10 +2,9 @@
 
 declare -a fonts=(
 
-    JetBrainsMono
-    Ubuntu
-#    RobotoMono
-
+    # JetBrainsMono
+    # Ubuntu
+    FiraCode Nerd Font Mono
 )
 
 version='3.4.0'

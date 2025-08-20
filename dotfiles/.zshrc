@@ -31,6 +31,7 @@ eval "$(zoxide init zsh)"
 
 #aliases
 alias hz='history | fzf'
+alias h='btop'
 alias lg='lazygit'
 alias zj='zellij'
 alias c='code .'
