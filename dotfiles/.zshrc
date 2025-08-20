@@ -1,55 +1,49 @@
-# Use powerline
-USE_POWERLINE="true"
-# Has weird character width
-# Example:
-#    is not a diamond
-HAS_WIDECHARS="false"
+#OH_MY_ZSH CONFIG
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+fi
+export PATH
 
-# precmd() {
-#   precmd() {
-#     echo
-#   }
-# }
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# History configuration
-HISTFILE=~/.zsh/.histfile      # File where history is saved
-HISTSIZE=10000                 # Number of commands to keep in memory
-SAVEHIST=10000                 # Number of commands to save to the history file
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
 
-setopt APPEND_HISTORY          # Append commands to the history file (don't overwrite)
-setopt INC_APPEND_HISTORY      # Immediately add commands to history after execution
-setopt SHARE_HISTORY           # Share history between all sessions
-setopt HIST_IGNORE_DUPS        # Ignore duplicated commands in a row
-setopt HIST_REDUCE_BLANKS      # Remove superfluous blanks from commands
+# command history
+HIST_STAMPS="dd.mm.yyyy"
+setopt APPEND_HISTORY         
+setopt INC_APPEND_HISTORY      
+setopt SHARE_HISTORY          
+setopt HIST_IGNORE_DUPS        
+setopt HIST_REDUCE_BLANKS 
 
+plugins=(git zsh-autosuggestions fast-syntax-highlighting)
 
-# export M2_HOME=/opt/apache-maven-3.9.9
-# export PATH=$PATH:$M2_HOME/bin
+source $ZSH/oh-my-zsh.sh
 
-# Personal settings
-alias nr='npm run'
-alias ni='npm install'
-alias lg='lazygit'
-alias zj='zellij'
-alias own-ssh='ssh-add ~/.ssh/personal'
-alias autocode-ssh='ssh-add ~/.ssh/autocode'
-alias work-ssh='ssh-add ~/.ssh/tourflow_rsa'
-alias autocode-ssh='ssh-add ~/.ssh/autocode'
-
+# USER CONFIG
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-if [[ -z "${SSH_CONNECTION}" ]]; then
-  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+#aliases
+alias nr='npm run'
+alias ni='npm install'
+alias lg='lazygit'
+alias zj='zellij'
+alias my-ssh='ssh-add ~/.ssh/personal'
+alias work-ssh='ssh-add ~/.ssh/work'
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='code'
+else
+  export EDITOR='nano'
 fi
 
-# sh ~/.config/waifu.sh
+# just for fun =)
 # wezterm imgcat ./Documents/tyan.png
 
-# zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# zsh-syntax-highlighting (should be in the end)
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
