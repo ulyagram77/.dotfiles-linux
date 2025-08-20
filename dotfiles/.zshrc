@@ -30,6 +30,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(zoxide init zsh)"
 
 #aliases
+alias upg='sudo dnf upgrade --refresh'
 alias hz='history | fzf'
 alias h='btop'
 alias lg='lazygit'
