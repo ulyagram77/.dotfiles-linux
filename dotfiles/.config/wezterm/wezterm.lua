@@ -1,7 +1,10 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.color_scheme = 'Breeze (Gogh)'
+-- config.color_scheme = 'tokyonight'
+config.color_scheme = 'Mono White (Gogh)'
+-- config.color_scheme = 'Mono Theme (terminal.sexy)'
+-- config.color_scheme = 'Tomorrow Night Eighties'
 -- config.color_scheme = 'Andromeda'
 -- config.color_scheme = 'Apple System Colors'
 -- config.color_scheme = 'Ashes (base16)'
@@ -24,8 +27,9 @@ config.enable_tab_bar = false
 config.enable_wayland = false
 config.font = wezterm.font 'FiraCode Nerd Font Mono'
 -- config.font = wezterm.font 'CaskaydiaCove Nerd Font Mono'
-config.font_size = 11.5
+config.font_size = 11.0
 config.bold_brightens_ansi_colors = false
+config.window_decorations='NONE'
 
 config.default_prog = { 'zsh' }
 
