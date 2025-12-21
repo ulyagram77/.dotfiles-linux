@@ -2,11 +2,11 @@ local wezterm = require 'wezterm'
 local config = {}
 
 -- config.color_scheme = 'tokyonight'
-config.color_scheme = 'Mono White (Gogh)'
+-- config.color_scheme = 'Mono White (Gogh)'
 -- config.color_scheme = 'Mono Theme (terminal.sexy)'
 -- config.color_scheme = 'Tomorrow Night Eighties'
 -- config.color_scheme = 'Andromeda'
--- config.color_scheme = 'Apple System Colors'
+config.color_scheme = 'Apple System Colors'
 -- config.color_scheme = 'Ashes (base16)'
 -- config.color_scheme = 'Ayu Mirage (Gogh)'
 -- config.color_scheme = 'Atom (Gogh)'

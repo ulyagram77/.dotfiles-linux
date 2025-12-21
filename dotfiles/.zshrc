@@ -7,7 +7,6 @@ export PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
@@ -29,6 +28,7 @@ eval "$(zoxide init zsh --cmd cd)"
 
 #aliases
 alias upg='sudo dnf upgrade --refresh'
+alias f='find . -type f | fzf'
 alias hz='history | fzf'
 alias h='btop'
 alias lg='lazygit'
@@ -48,6 +48,9 @@ else
   export EDITOR='nano'
 fi
 
+export EDITOR="code"
+export VISUAL="code"
+
 # just for fun =)
 # wezterm imgcat ./Documents/tyan.png
 
@@ -55,3 +58,12 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# pnpm
+export PNPM_HOME="/home/kyryloulianov/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
