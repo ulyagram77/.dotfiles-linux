@@ -1,0 +1,11 @@
+[user]
+	name = Kyrylo Ulianov
+	email = kirillulianow@gmail.com
+[core]
+	editor = code
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
