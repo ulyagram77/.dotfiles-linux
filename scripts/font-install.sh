@@ -1,29 +1,33 @@
 #!/bin/bash
 
-declare -a fonts=(
+set -e
 
-    # JetBrainsMono
-    # Ubuntu
-    FiraCode Nerd Font Mono
+fonts=(
+  FiraCode
+  JetBrainsMono
+  Ubuntu
 )
 
-version='3.4.0'
-fonts_dir="${HOME}/.local/share/fonts"
+version="3.4.0"
+fonts_dir="$HOME/.local/share/fonts"
+tmp_dir="$(mktemp -d)"
 
-if [[ ! -d "$fonts_dir" ]]; then
-    mkdir -p "$fonts_dir"
-fi
+mkdir -p "$fonts_dir"
 
 for font in "${fonts[@]}"; do
-    zip_file="${font}.zip"
-    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-    echo "Downloading $download_url"
-    wget "$download_url"
-    unzip "$zip_file" -d "$fonts_dir"
-    find $fonts_dir -not -name "*.ttf" -not -name "*.otf" --delete
-    rm "$zip_file"
+  zip_file="${font}.zip"
+  url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+
+  echo "Downloading $font"
+  wget -q "$url" -O "$tmp_dir/$zip_file"
+
+  unzip -q "$tmp_dir/$zip_file" -d "$tmp_dir/$font"
+
+  find "$tmp_dir/$font" -type f ! \( -name "*.ttf" -o -name "*.otf" \) -delete
+
+  cp "$tmp_dir/$font"/* "$fonts_dir/"
 done
 
-find "$fonts_dir" -name '*Windows Compatible*' -delete
+rm -rf "$tmp_dir"
 
 fc-cache -fv

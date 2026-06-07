@@ -3,6 +3,7 @@
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 fi
+PATH=$HOME/.config/composer/vendor/bin:~/.composer/vendor/bin:$PATH
 export PATH
 
 # Path to your Oh My Zsh installation.
@@ -27,7 +28,8 @@ export STARSHIP_CONFIG=~/.config/starship/basket-mono.toml
 eval "$(zoxide init zsh --cmd cd)"
 
 #aliases
-alias upg='sudo dnf upgrade --refresh'
+# alias upg='sudo dnf upgrade --refresh' #for Fedora
+alias upg='sudo pacman -Syu' #for Arch
 alias f='find . -type f | fzf'
 alias hz='history | fzf'
 alias h='btop'
@@ -50,20 +52,18 @@ fi
 
 export EDITOR="code"
 export VISUAL="code"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # just for fun =)
 # wezterm imgcat ./Documents/tyan.png
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
 # pnpm
-export PNPM_HOME="/home/kyryloulianov/.local/share/pnpm"
+export PNPM_HOME="/home/kyrylou/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/init-nvm.sh

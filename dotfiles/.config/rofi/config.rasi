@@ -3,8 +3,7 @@ configuration {
     display-calc: " 󰪚 ";
     display-ssh: " 󰣀 ";
     drun-display-format: "{icon} {name}";
-    modi: "drun,ssh,combi";
-    font: "FiraCode Nerd Font Mono 16";
+    font: "Ubuntu 14";
     modi: "run,drun,ssh,calc";
     show-icons: true;
 }
@@ -194,4 +193,5 @@ textbox-prompt-colon {
 }
 */
 
-@theme "/home/whitegolyb/.local/share/rofi/themes/squared-nord.rasi"
+@theme "./themes/spotlight-dark.rasi"
+
